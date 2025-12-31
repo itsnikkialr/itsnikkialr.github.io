@@ -28,6 +28,9 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- Your custom overrides -->
+  <link href="assets/css/custom.css" rel="stylesheet">
 </head>
 
 <body class="index-page">
@@ -57,41 +60,196 @@
 
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
-
       <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
 
       <div class="container" data-aos="zoom-out" data-aos-delay="100">
         <h2>Hi, I'm Nikki!</h2>
         <p>I build gameplay systems with sensible UX and polished UI, and I enjoy turning messy processes into clean automations.</p>
-        <div class="social-links">
-          <a href="#"><i class="bi bi-linkedin"></i></a>
-        </div>
+        <!-- LinkedIn icon/link removed from hero -->
       </div>
-
-    </section><!-- /Hero Section -->
+    </section>
+    <!-- /Hero Section -->
 
     <!-- About Section -->
     <section id="about" class="about section">
+      <div class="container" data-aos="fade-up">
 
-      
+        <div class="section-title">
+          <h2>About</h2>
+          <p>Gameplay systems, UI polish, and automation-minded engineering.</p>
+        </div>
 
-    </section><!-- /About Section -->
+        <div class="about-card">
+          <p class="about-blurb">
+            I’m a CS student and gameplay-focused developer. I like building systems that feel good to use: readable UI,
+            satisfying interactions, and game logic that stays clean as it scales. I’m also comfortable owning automation
+            work end-to-end—turning manual workflows into reliable tools.
+          </p>
+
+          <div class="skill-pills" aria-label="Skills">
+            <span class="pill">Unity / C#</span>
+            <span class="pill">Gameplay Systems</span>
+            <span class="pill">UI / UX</span>
+            <span class="pill">Tools & Automation</span>
+            <span class="pill">JavaScript</span>
+            <span class="pill">Python</span>
+            <span class="pill">Git</span>
+            <span class="pill">Figma</span>
+          </div>
+
+          <div class="cta-row">
+            <a class="btn-cta primary" href="mailto:ynikita@umich.edu">
+              <i class="bi bi-envelope"></i>
+              Email me
+            </a>
+            <a class="btn-cta" href="https://www.linkedin.com/in/nikita-yarapathineni/" target="_blank" rel="noopener">
+              <i class="bi bi-linkedin"></i>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- /About Section -->
 
     <!-- Projects Section -->
     <section id="projects" class="portfolio section">
+      <div class="container" data-aos="fade-up">
 
-      
-    </section><!-- /Projects Section -->
+        <div class="section-title">
+          <h2>Projects</h2>
+          <p>Hover to preview. Click to open a project.</p>
+        </div>
+
+        <!-- LIST VIEW -->
+        <div id="works-list" class="works-wrap">
+          <div class="works-grid">
+
+            <!-- Replace these placeholder images later -->
+            <a class="work-card" href="#work-1" aria-label="Open Project 1">
+              <img class="work-thumb" src="assets/img/hero-bg.jpg" alt="Project 1 preview image">
+              <div class="work-overlay">
+                <div class="work-overlay-inner">
+                  <h3 class="work-title">Project 1</h3>
+                  <p class="work-tagline">Catchy one-liner about what this is.</p>
+                </div>
+              </div>
+            </a>
+
+            <a class="work-card" href="#work-2" aria-label="Open Project 2">
+              <img class="work-thumb" src="assets/img/hero-bg.jpg" alt="Project 2 preview image">
+              <div class="work-overlay">
+                <div class="work-overlay-inner">
+                  <h3 class="work-title">Project 2</h3>
+                  <p class="work-tagline">Catchy one-liner about what this is.</p>
+                </div>
+              </div>
+            </a>
+
+            <a class="work-card" href="#work-3" aria-label="Open Project 3">
+              <img class="work-thumb" src="assets/img/hero-bg.jpg" alt="Project 3 preview image">
+              <div class="work-overlay">
+                <div class="work-overlay-inner">
+                  <h3 class="work-title">Project 3</h3>
+                  <p class="work-tagline">Catchy one-liner about what this is.</p>
+                </div>
+              </div>
+            </a>
+
+            <a class="work-card" href="#work-4" aria-label="Open Project 4">
+              <img class="work-thumb" src="assets/img/hero-bg.jpg" alt="Project 4 preview image">
+              <div class="work-overlay">
+                <div class="work-overlay-inner">
+                  <h3 class="work-title">Project 4</h3>
+                  <p class="work-tagline">Catchy one-liner about what this is.</p>
+                </div>
+              </div>
+            </a>
+
+            <a class="work-card" href="#work-5" aria-label="Open Project 5">
+              <img class="work-thumb" src="assets/img/hero-bg.jpg" alt="Project 5 preview image">
+              <div class="work-overlay">
+                <div class="work-overlay-inner">
+                  <h3 class="work-title">Project 5</h3>
+                  <p class="work-tagline">Catchy one-liner about what this is.</p>
+                </div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- DETAIL VIEWS (hidden until clicked) -->
+        <section id="work-1" class="work-detail section">
+          <div class="work-detail-card">
+            <h2>Project 1</h2>
+            <p class="work-detail-meta">Role • Tools • Year</p>
+            <p class="work-detail-desc">
+              Short description goes here. Add 2–4 sentences about what it is, what you built, and what makes it interesting.
+            </p>
+            <img class="work-detail-img" src="assets/img/hero-bg.jpg" alt="Project 1 hero image">
+          </div>
+        </section>
+
+        <section id="work-2" class="work-detail section">
+          <div class="work-detail-card">
+            <h2>Project 2</h2>
+            <p class="work-detail-meta">Role • Tools • Year</p>
+            <p class="work-detail-desc">Short description goes here.</p>
+            <img class="work-detail-img" src="assets/img/hero-bg.jpg" alt="Project 2 hero image">
+          </div>
+        </section>
+
+        <section id="work-3" class="work-detail section">
+          <div class="work-detail-card">
+            <h2>Project 3</h2>
+            <p class="work-detail-meta">Role • Tools • Year</p>
+            <p class="work-detail-desc">Short description goes here.</p>
+            <img class="work-detail-img" src="assets/img/hero-bg.jpg" alt="Project 3 hero image">
+          </div>
+        </section>
+
+        <section id="work-4" class="work-detail section">
+          <div class="work-detail-card">
+            <h2>Project 4</h2>
+            <p class="work-detail-meta">Role • Tools • Year</p>
+            <p class="work-detail-desc">Short description goes here.</p>
+            <img class="work-detail-img" src="assets/img/hero-bg.jpg" alt="Project 4 hero image">
+          </div>
+        </section>
+
+        <section id="work-5" class="work-detail section">
+          <div class="work-detail-card">
+            <h2>Project 5</h2>
+            <p class="work-detail-meta">Role • Tools • Year</p>
+            <p class="work-detail-desc">Short description goes here.</p>
+            <img class="work-detail-img" src="assets/img/hero-bg.jpg" alt="Project 5 hero image">
+          </div>
+        </section>
+
+      </div>
+    </section>
+    <!-- /Projects Section -->
 
   </main>
 
   <footer id="footer" class="footer dark-background">
-    <div class="container"></div>
+    <div class="container">
+      <div class="footer-inner">
+        <!-- Shows only on project detail view -->
+        <a id="all-works-link" class="btn-cta" href="#projects" aria-label="Back to all works">
+          <i class="bi bi-grid-3x3-gap"></i>
+          All works
+        </a>
+      </div>
+    </div>
   </footer>
 
   <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
 
   <!-- Preloader -->
   <div id="preloader"></div>
@@ -110,6 +268,9 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Your custom JS -->
+  <script src="assets/js/custom.js"></script>
 
 </body>
 
