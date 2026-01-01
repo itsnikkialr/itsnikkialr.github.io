@@ -1,33 +1,136 @@
 :root {
-    --bg0: #07070a;
-    --bg1: #0b0b12;
-    --fg0: rgba(255, 255, 255, 0.92);
-    --fg1: rgba(255, 255, 255, 0.72);
-    --fg2: rgba(255, 255, 255, 0.55);
-    --stroke: rgba(255, 255, 255, 0.12);
-    --stroke2: rgba(255, 255, 255, 0.08);
-    --card: rgba(255, 255, 255, 0.06);
-    --card2: rgba(255, 255, 255, 0.04);
-    --accent: #b7ff4a;
+    /* Warm scrapbook palette */
+    --paper: #f6efe6;         /* warm beige base */
+    --paper-2: #f2e7db;       /* slightly deeper beige */
+    --ink: #2b2a28;           /* near-black, warm */
+    --muted: rgba(43, 42, 40, 0.70);
+    --muted2: rgba(43, 42, 40, 0.55);
+  
+    --pink: #f6bfd3;
+    --lav:  #cdbdff;
+    --blue: #b7ddff;
+  
+    --stroke: rgba(43, 42, 40, 0.14);
+    --stroke2: rgba(43, 42, 40, 0.10);
+  
+    --card: rgba(255, 255, 255, 0.55);
+    --card2: rgba(255, 255, 255, 0.35);
+  
+    --shadow: 0 18px 45px rgba(43, 42, 40, 0.10);
+    --shadow2: 0 10px 24px rgba(43, 42, 40, 0.08);
+  
+    --radius: 20px;
+  }
+  
+  html, body {
+    height: 100%;
   }
   
   body {
+    /* Beige base + subtle pastel blobs (scrapbook vibe) */
     background:
-      radial-gradient(1200px 600px at 20% -10%, rgba(183, 255, 74, 0.10), transparent 60%),
-      radial-gradient(900px 500px at 85% 10%, rgba(117, 193, 255, 0.10), transparent 55%),
-      linear-gradient(180deg, var(--bg0), var(--bg1));
-    color: var(--fg0);
+      radial-gradient(900px 520px at 15% 8%, rgba(246, 191, 211, 0.32), transparent 60%),
+      radial-gradient(860px 520px at 85% 12%, rgba(183, 221, 255, 0.30), transparent 58%),
+      radial-gradient(950px 650px at 55% 85%, rgba(205, 189, 255, 0.28), transparent 62%),
+      linear-gradient(180deg, var(--paper), var(--paper-2));
+    color: var(--ink);
   }
   
-  /* Center EVERYTHING for now */
+  /* -----------------------------
+     Global centering (your current preference)
+  ------------------------------ */
   section .container,
   section .container-fluid,
   section .container-xl {
     text-align: center;
   }
   
-  /* Hero: true center */
+  /* -----------------------------
+     Remove the template “green line” / section decorations
+  ------------------------------ */
+  .section-title,
+  .section-title * {
+    border-left: none !important;
+  }
+  
+  .section-title::before,
+  .section-title::after,
+  .section-title h2::before,
+  .section-title h2::after {
+    content: none !important;
+    display: none !important;
+  }
+  
+  /* Section title typography + spacing */
+  .section-title h2 {
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+  
+  .section-title p {
+    color: var(--muted);
+    margin-bottom: 0;
+  }
+  
+  /* -----------------------------
+     Header: readable on beige, not “dark bar”
+  ------------------------------ */
+  .header {
+    background: rgba(246, 239, 230, 0.78) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--stroke2);
+  }
+  
+  .header .sitename {
+    color: var(--ink) !important;
+  }
+  
+  /* Nav links */
+  .navmenu a {
+    color: rgba(43, 42, 40, 0.78) !important;
+  }
+  .navmenu a:hover,
+  .navmenu .active {
+    color: var(--ink) !important;
+  }
+  
+  /* -----------------------------
+     “dark-background” overrides (hero/footer use this class in HTML)
+     Make them match the beige theme
+  ------------------------------ */
+  .dark-background {
+    background: transparent !important;
+    color: var(--ink) !important;
+  }
+  
+  /* -----------------------------
+     Hero: editorial + soft, not black/green
+  ------------------------------ */
+  #hero.section {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* tone down the hero bg image if present */
+  #hero img {
+    opacity: 0.16;
+    filter: grayscale(1) contrast(1.05) brightness(1.05);
+  }
+  
+  /* soft overlay so text reads cleanly */
+  #hero.section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(700px 420px at 18% 18%, rgba(246, 191, 211, 0.28), transparent 62%),
+      radial-gradient(740px 460px at 84% 22%, rgba(183, 221, 255, 0.26), transparent 62%),
+      radial-gradient(820px 520px at 52% 82%, rgba(205, 189, 255, 0.22), transparent 64%);
+    pointer-events: none;
+  }
+  
   #hero .container {
+    position: relative;
     min-height: calc(100vh - 90px);
     display: flex;
     flex-direction: column;
@@ -38,108 +141,128 @@
   }
   
   #hero h2 {
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.03;
     margin: 0;
+    color: var(--ink);
   }
   
   #hero p {
     max-width: 760px;
     margin: 0;
-    color: var(--fg1);
+    color: var(--muted);
     font-size: 1.05rem;
-    line-height: 1.55;
+    line-height: 1.6;
   }
   
-  /* Section titles */
-  .section-title h2 {
-    color: var(--fg0);
-    letter-spacing: -0.02em;
-  }
-  
-  .section-title p {
-    color: var(--fg1);
-    margin-bottom: 0;
-  }
-  
-  /* About card */
+  /* -----------------------------
+     About: remove “box” feel (no border card)
+     Keep structure but make it look like part of the page.
+  ------------------------------ */
   .about-card {
     margin: 0 auto;
     max-width: 980px;
-    border: 1px solid var(--stroke2);
-    background: linear-gradient(180deg, var(--card), var(--card2));
-    border-radius: 18px;
-    padding: 26px 20px;
-    backdrop-filter: blur(8px);
+  
+    /* remove boxed card */
+    border: none;
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+    backdrop-filter: none;
   }
   
   .about-blurb {
-    color: var(--fg1);
+    color: var(--muted);
     max-width: 860px;
     margin: 10px auto 18px auto;
-    line-height: 1.65;
+    line-height: 1.7;
   }
   
+  /* Skills: make them feel designed (pastel chips, light “paper” depth) */
   .skill-pills {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-    margin: 10px auto 18px auto;
+    margin: 16px auto 18px auto;
     max-width: 920px;
   }
   
+  /* default pill */
   .pill {
-    border: 1px solid var(--stroke);
-    background: rgba(255, 255, 255, 0.04);
-    color: var(--fg1);
-    padding: 8px 12px;
+    border: 1px solid var(--stroke2);
+    background: rgba(255, 255, 255, 0.55);
+    color: rgba(43, 42, 40, 0.82);
+    padding: 9px 12px;
     border-radius: 999px;
     font-size: 0.95rem;
     line-height: 1;
     user-select: none;
+    box-shadow: 0 8px 16px rgba(43, 42, 40, 0.06);
+    transform: translateZ(0);
+    transition: transform 160ms ease, box-shadow 160ms ease;
   }
   
+  .pill:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 22px rgba(43, 42, 40, 0.10);
+  }
+  
+  /* pastel variety so it feels intentional, not uniform */
+  .skill-pills .pill:nth-child(3n+1) {
+    background: rgba(246, 191, 211, 0.40);
+  }
+  .skill-pills .pill:nth-child(3n+2) {
+    background: rgba(205, 189, 255, 0.36);
+  }
+  .skill-pills .pill:nth-child(3n) {
+    background: rgba(183, 221, 255, 0.36);
+  }
+  
+  /* CTA buttons: pastel, “sticker” style */
   .cta-row {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 12px;
-    margin-top: 6px;
+    margin-top: 10px;
   }
   
   .btn-cta {
     border-radius: 999px;
     padding: 10px 16px;
     border: 1px solid var(--stroke);
-    background: rgba(255, 255, 255, 0.06);
-    color: var(--fg0);
+    background: rgba(255, 255, 255, 0.62);
+    color: var(--ink);
     text-decoration: none;
     transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
     display: inline-flex;
     align-items: center;
     gap: 10px;
+    box-shadow: 0 10px 20px rgba(43, 42, 40, 0.08);
   }
   
   .btn-cta:hover {
     transform: translateY(-1px);
-    background: rgba(255, 255, 255, 0.10);
-    border-color: rgba(255, 255, 255, 0.20);
-    color: var(--fg0);
+    background: rgba(255, 255, 255, 0.78);
+    border-color: rgba(43, 42, 40, 0.18);
+    color: var(--ink);
   }
   
   .btn-cta.primary {
-    border-color: rgba(183, 255, 74, 0.40);
-    background: rgba(183, 255, 74, 0.10);
+    border-color: rgba(246, 191, 211, 0.70);
+    background: rgba(246, 191, 211, 0.55);
   }
   
   .btn-cta.primary:hover {
-    border-color: rgba(183, 255, 74, 0.60);
-    background: rgba(183, 255, 74, 0.14);
+    border-color: rgba(246, 191, 211, 0.92);
+    background: rgba(246, 191, 211, 0.70);
   }
   
-  /* Works grid */
+  /* -----------------------------
+     Projects grid: lighter “photo print” cards + hover gray + caption
+  ------------------------------ */
   .works-wrap {
     margin: 0 auto;
     max-width: 1120px;
@@ -155,14 +278,15 @@
   .work-card {
     grid-column: span 6;
     position: relative;
-    border-radius: 18px;
+    border-radius: var(--radius);
     overflow: hidden;
     border: 1px solid var(--stroke2);
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.55);
     text-decoration: none;
     color: inherit;
     min-height: 280px;
     transform: translateZ(0);
+    box-shadow: var(--shadow2);
   }
   
   @media (max-width: 992px) {
@@ -177,15 +301,22 @@
     height: 100%;
     object-fit: cover;
     display: block;
-    filter: grayscale(0) brightness(0.95);
+  
+    /* slightly “printed photo” look */
+    filter: saturate(0.95) contrast(1.02) brightness(1.02);
     transform: scale(1.02);
     transition: filter 220ms ease, transform 220ms ease;
   }
   
+  /* overlay: warm paper fade, not dark black */
   .work-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.62));
+    background: linear-gradient(
+      180deg,
+      rgba(246, 239, 230, 0.08),
+      rgba(246, 239, 230, 0.88)
+    );
     opacity: 0;
     transition: opacity 220ms ease;
     display: flex;
@@ -197,28 +328,30 @@
   
   .work-overlay-inner {
     width: 100%;
-    border: 1px solid rgba(255,255,255,0.14);
-    background: rgba(0, 0, 0, 0.32);
-    backdrop-filter: blur(8px);
-    border-radius: 14px;
+    border: 1px solid var(--stroke2);
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
     padding: 14px 14px;
+    box-shadow: var(--shadow2);
   }
   
   .work-title {
-    font-weight: 700;
-    letter-spacing: -0.01em;
+    font-weight: 800;
+    letter-spacing: -0.02em;
     margin: 0 0 6px 0;
-    color: rgba(255,255,255,0.94);
+    color: var(--ink);
   }
   
   .work-tagline {
     margin: 0;
-    color: rgba(255,255,255,0.74);
+    color: var(--muted);
     line-height: 1.4;
   }
   
   .work-card:hover .work-thumb {
-    filter: grayscale(1) brightness(0.60);
+    /* your requested hover “grays it” behavior */
+    filter: grayscale(1) contrast(1.05) brightness(0.85);
     transform: scale(1.04);
   }
   
@@ -226,7 +359,9 @@
     opacity: 1;
   }
   
-  /* Detail view */
+  /* -----------------------------
+     Detail view: keep but lighten (no dark glass)
+  ------------------------------ */
   .work-detail {
     display: none;
   }
@@ -239,26 +374,27 @@
     margin: 0 auto;
     max-width: 980px;
     border: 1px solid var(--stroke2);
-    background: linear-gradient(180deg, var(--card), var(--card2));
-    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.62);
+    border-radius: var(--radius);
     padding: 26px 20px;
-    backdrop-filter: blur(8px);
+    box-shadow: var(--shadow);
   }
   
   .work-detail-card h2 {
     margin-bottom: 10px;
     letter-spacing: -0.02em;
+    color: var(--ink);
   }
   
   .work-detail-meta {
-    color: var(--fg2);
+    color: var(--muted2);
     margin: 0 auto 14px auto;
     max-width: 860px;
     line-height: 1.5;
   }
   
   .work-detail-desc {
-    color: var(--fg1);
+    color: var(--muted);
     max-width: 860px;
     margin: 0 auto 18px auto;
     line-height: 1.7;
@@ -273,7 +409,14 @@
     display: block;
   }
   
-  /* Footer "All works" visibility control */
+  /* -----------------------------
+     Footer: beige + “All works” button visible styling
+  ------------------------------ */
+  #footer {
+    background: transparent !important;
+    border-top: 1px solid var(--stroke2);
+  }
+  
   #footer .footer-inner {
     display: flex;
     justify-content: center;
@@ -290,8 +433,10 @@
     display: inline-flex;
   }
   
-  /* Header readability on dark */
-  .header .sitename {
-    color: rgba(255,255,255,0.92);
+  /* Scroll-top button readability on beige */
+  .scroll-top {
+    background: rgba(255, 255, 255, 0.76) !important;
+    border: 1px solid var(--stroke2) !important;
+    color: var(--ink) !important;
   }
   
