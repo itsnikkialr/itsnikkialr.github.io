@@ -440,3 +440,139 @@
     color: var(--ink) !important;
   }
   
+  /* =========================================================
+   OVERRIDES (paste at bottom): Beige-only background + collage grid + square projects
+   ========================================================= */
+
+/* Fonts: later, change these two variables (see notes below) */
+:root{
+    --site-font: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    --site-font-head: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+  
+  body{
+    font-family: var(--site-font) !important;
+  
+    /* Beige-only background (removes the pink/purple/blue blobs) */
+    background: linear-gradient(180deg, var(--paper), var(--paper-2)) !important;
+  }
+  
+  h1, h2, h3, h4, h5, h6,
+  .header .sitename{
+    font-family: var(--site-font-head) !important;
+  }
+  
+  /* Make ALL sections share the same page background (no separate section panels) */
+  section.section,
+  #about.section,
+  #projects.section,
+  .portfolio.section,
+  .about.section,
+  .work-detail.section{
+    background: transparent !important;
+  }
+  
+  /* HERO: remove any extra overlay colors + optionally hide the hero background image */
+  #hero.section::before{
+    content: none !important;      /* kills the pastel overlay */
+    display: none !important;
+  }
+  
+  /* If you want a pure beige landing page (no image texture at all), keep this. */
+  #hero img{
+    display: none !important;
+  }
+  
+  /* =========================================================
+     Projects: collage-like layout BUT sharp rectangles (no soft edges)
+     ========================================================= */
+  
+  .works-grid{
+    grid-auto-flow: dense;
+  }
+  
+  /* Sharp corners */
+  .work-card,
+  .work-overlay-inner,
+  .work-detail-card,
+  .work-detail-img{
+    border-radius: 0 !important;
+  }
+  
+  /* Collage feel: varied sizing + slight tilt + layered “paper” shadow */
+  .work-card{
+    --tilt: 0deg;
+    transform: rotate(var(--tilt)) translateZ(0);
+    transition: transform 180ms ease, box-shadow 180ms ease;
+    border: 1px solid var(--stroke2);
+    box-shadow: 0 10px 26px rgba(43, 42, 40, 0.10);
+  }
+  
+  .work-card:hover{
+    transform: rotate(var(--tilt)) translateY(-2px);
+    box-shadow: 0 16px 34px rgba(43, 42, 40, 0.14);
+  }
+  
+  /* “Tape” detail in beige (optional, but helps collage look without adding colors) */
+  .work-card::before{
+    content: "";
+    position: absolute;
+    top: -14px;
+    left: 18px;
+    width: 88px;
+    height: 30px;
+    background: rgba(242, 231, 219, 0.92);
+    border: 1px solid var(--stroke2);
+    box-shadow: 0 8px 16px rgba(43, 42, 40, 0.10);
+    transform: rotate(-5deg);
+    z-index: 3;
+    pointer-events: none;
+  }
+  
+  /* Make the overlay caption sharp-edged too */
+  .work-overlay-inner{
+    border: 1px solid var(--stroke2);
+    background: rgba(255, 255, 255, 0.72);
+  }
+  
+  /* Collage sizing/placement (desktop) */
+  @media (min-width: 993px){
+    .works-grid .work-card:nth-child(1){
+      grid-column: 2 / span 7;
+      min-height: 340px;
+      --tilt: -1.2deg;
+    }
+    .works-grid .work-card:nth-child(2){
+      grid-column: 1 / span 5;
+      min-height: 280px;
+      --tilt: 1.0deg;
+      margin-top: 22px;
+    }
+    .works-grid .work-card:nth-child(3){
+      grid-column: 8 / span 5;
+      min-height: 300px;
+      --tilt: 0.8deg;
+      margin-top: -10px;
+    }
+    .works-grid .work-card:nth-child(4){
+      grid-column: 1 / span 6;
+      min-height: 320px;
+      --tilt: -0.8deg;
+    }
+    .works-grid .work-card:nth-child(5){
+      grid-column: 7 / span 6;
+      min-height: 320px;
+      --tilt: 0.6deg;
+      margin-top: 14px;
+    }
+  }
+  
+  /* Keep hover “grayscale” behavior but ensure overlay stays subtle on beige */
+  .work-overlay{
+    background: linear-gradient(
+      180deg,
+      rgba(246, 239, 230, 0.06),
+      rgba(246, 239, 230, 0.92)
+    ) !important;
+  }
+  
