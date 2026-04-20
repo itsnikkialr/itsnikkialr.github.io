@@ -208,7 +208,6 @@
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 6px 36px rgba(0,0,0,0.16);
-      margin-bottom: 1.25rem;
     }
 
     .video-wrap iframe {
@@ -216,28 +215,6 @@
       top: 0; left: 0;
       width: 100%; height: 100%;
       border: none;
-    }
-
-    .yt-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: #ff0000;
-      color: #fff;
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 600;
-      padding: 0.55em 1.3em;
-      border-radius: 6px;
-      transition: background 0.18s;
-    }
-
-    .yt-btn:hover { background: #cc0000; color: #fff; }
-
-    .yt-icon {
-      width: 18px; height: 18px;
-      fill: #fff;
-      flex-shrink: 0;
     }
 
     footer {
@@ -290,8 +267,6 @@
   <section id="projects">
     <div class="section-inner">
       <p class="section-label">Projects</p>
-      <h2 class="section-heading">Work</h2>
-
       <h3 class="project-heading">BAM — Custom Game Engine</h3>
 
       <div class="tech-row">
@@ -306,17 +281,17 @@
       </div>
 
       <p class="project-p">
-        BAM is a 2D game engine built in C++ with a Lua scripting runtime, featuring an integrated visual tile map editor powered by Dear ImGui.
+        BAM is a 2D game engine I built in C++ with a Lua scripting runtime. The main thing I added on top of the base engine is an integrated visual tile map editor using Dear ImGui.
       </p>
       <p class="project-p">
-        The editor launches directly from the engine binary — no separate tool, no separate build target. A single <code>--play</code> flag switches the same executable between editor and game mode. In the editor, level designers paint tile maps onto a grid and hit Save; the engine surgically rewrites the <code>stage1</code> table inside the game's Lua scripts and the changes are immediately playable.
+        The editor and the game are the same binary — passing <code>--play</code> runs the game, no args opens the editor. You paint a tile map, hit Save, and the engine rewrites the <code>stage1</code> table directly in your Lua scripts. No separate map format, no import step.
       </p>
       <p class="project-p">
-        The tile palette is discovered automatically at runtime by parsing <code>GameManager.lua</code> — the editor scans for <code>tile_code</code> comparisons and nearby <code>Instantiate</code> calls to build the brush picker dynamically, requiring no separate tile configuration file.
+        The brush palette builds itself by parsing <code>GameManager.lua</code> at startup — it looks for <code>tile_code</code> checks and the <code>Instantiate</code> calls next to them, so adding a new tile type to your Lua automatically shows up in the editor without touching any config file.
       </p>
 
       <div class="video-section">
-        <p class="video-label">Watch it in action</p>
+        <p class="video-label">Demo</p>
         <div class="video-wrap">
           <iframe
             src="https://www.youtube.com/embed/ahQDxG0OLwQ"
@@ -325,12 +300,6 @@
             allowfullscreen>
           </iframe>
         </div>
-        <a class="yt-btn" href="https://www.youtube.com/watch?v=ahQDxG0OLwQ" target="_blank" rel="noopener">
-          <svg class="yt-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/>
-          </svg>
-          Watch on YouTube
-        </a>
       </div>
 
     </div>
