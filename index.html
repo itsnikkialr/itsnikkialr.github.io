@@ -12,79 +12,192 @@
 
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <link href="assets/css/main.css" rel="stylesheet">
-  <link href="assets/css/custom.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    .bam-detail {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 3rem 1.5rem 5rem;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f5f0eb;
+      --text: #1a1a1a;
+      --text-muted: #666;
+      --border: rgba(0,0,0,0.1);
     }
 
-    .bam-detail h2 {
-      font-size: 2.2rem;
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(245, 240, 235, 0.94);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2.5rem;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header .name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    header nav a {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 2rem;
+      transition: color 0.2s;
+    }
+
+    header nav a:hover { color: var(--text); }
+
+    section {
+      padding: 6rem 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-top: none;
+      padding-top: 80px;
+    }
+
+    #hero h1 {
+      font-size: clamp(2.8rem, 6vw, 5rem);
       font-weight: 700;
-      margin-bottom: 0.4rem;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      color: var(--text);
     }
 
-    .bam-meta {
-      font-size: 0.8rem;
+    #hero p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.6em 1.4em;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1.5px solid var(--text);
+      color: var(--text);
+      background: transparent;
+      transition: opacity 0.2s;
+    }
+
+    .btn:hover { opacity: 0.55; }
+
+    .btn.filled {
+      background: var(--text);
+      color: var(--bg);
+    }
+
+    .section-inner {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.68rem;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      opacity: 0.5;
+      letter-spacing: 0.2em;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-heading {
+      font-size: 1.9rem;
+      font-weight: 700;
+      margin-bottom: 1.75rem;
+      color: var(--text);
+    }
+
+    .about-p {
+      font-size: 0.975rem;
+      color: #2e2e2e;
+      margin-bottom: 1.1rem;
+    }
+
+    .project-heading {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--text);
+    }
+
+    .tech-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
       margin-bottom: 2rem;
     }
 
-    .bam-meta span {
-      margin-right: 1rem;
-    }
-
-    .bam-desc {
-      font-size: 1.05rem;
-      line-height: 1.75;
-      margin-bottom: 1.25rem;
-      opacity: 0.88;
-    }
-
-    .bam-desc code {
-      font-size: 0.9em;
-      background: rgba(128,128,128,0.12);
-      padding: 0.1em 0.35em;
-      border-radius: 4px;
-    }
-
-    .tech-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 2rem 0 2.5rem;
-    }
-
-    .tech-pill {
-      font-size: 0.75rem;
+    .tag {
+      font-size: 0.68rem;
       font-weight: 600;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      padding: 0.3em 0.8em;
+      padding: 0.28em 0.78em;
       border-radius: 999px;
-      border: 1px solid rgba(128,128,128,0.3);
-      opacity: 0.75;
+      border: 1px solid rgba(0,0,0,0.2);
+      color: #444;
+      background: transparent;
     }
 
-    .watch-label {
-      font-size: 0.72rem;
+    .project-p {
+      font-size: 0.975rem;
+      color: #2e2e2e;
+      margin-bottom: 1rem;
+    }
+
+    .project-p code {
+      font-size: 0.875em;
+      background: rgba(0,0,0,0.07);
+      color: #1a1a1a;
+      padding: 0.15em 0.4em;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+    }
+
+    .video-section {
+      margin-top: 2.5rem;
+    }
+
+    .video-label {
+      font-size: 0.68rem;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
-      opacity: 0.5;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
       margin-bottom: 0.75rem;
     }
 
@@ -94,8 +207,8 @@
       padding-bottom: 56.25%;
       border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.3);
-      margin-bottom: 1.5rem;
+      box-shadow: 0 6px 36px rgba(0,0,0,0.16);
+      margin-bottom: 1.25rem;
     }
 
     .video-wrap iframe {
@@ -105,167 +218,127 @@
       border: none;
     }
 
-    .yt-direct-link {
+    .yt-btn {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      font-size: 0.9rem;
-      font-weight: 600;
-      padding: 0.55em 1.2em;
-      border-radius: 6px;
       background: #ff0000;
-      color: #fff !important;
+      color: #fff;
       text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 0.55em 1.3em;
+      border-radius: 6px;
       transition: background 0.18s;
-      margin-top: 0.5rem;
     }
 
-    .yt-direct-link:hover {
-      background: #cc0000;
-      color: #fff !important;
+    .yt-btn:hover { background: #cc0000; color: #fff; }
+
+    .yt-icon {
+      width: 18px; height: 18px;
+      fill: #fff;
+      flex-shrink: 0;
     }
 
-    .yt-direct-link i {
-      font-size: 1.1rem;
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
     }
   </style>
 </head>
 
-<body class="index-page">
+<body>
 
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
-      <a href="index.html#hero" class="logo d-flex align-items-center">
-        <h3 class="sitename">Nikki Yarapathineni</h3>
-      </a>
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="index.html#about">About</a></li>
-          <li><a href="index.html#projects">Projects</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-    </div>
+  <header>
+    <a href="#hero" class="name">Nikki Yarapathineni</a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+    </nav>
   </header>
 
-  <main class="main">
-
-    <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
-      <img src="assets/img/beige-bg.jpeg" alt="" data-aos="fade-in">
-      <div class="container" data-aos="zoom-out" data-aos-delay="100">
-        <h2>Hi, I'm Nikki!</h2>
+  <section id="hero">
+    <div>
+      <h1>Hi, I'm Nikki!</h1>
+      <p>Gameplay developer &amp; software engineer.</p>
+      <div class="btn-row">
+        <a class="btn filled" href="mailto:ynikita@umich.edu">Email me</a>
+        <a class="btn" href="https://www.linkedin.com/in/nikita-yarapathineni/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about section">
-      <div class="container" data-aos="fade-up">
-        <div class="section-title">
-          <h1>A bit about me</h1>
-        </div>
-        <div class="about-card">
-          <p class="about-blurb">
-            I'm a senior studying CS at the University of Michigan. I currently work part-time as a Student Lead Computer Consultant for the university, where I spend my days managing fellow students, troubleshooting tech issues around campus, and utilizing JavaScript to automate repetitive processes to make my coworkers' lives easier. Technically, I'm most at home in Unity (C#) for gameplay systems, C++ for school projects, and I also build practical tooling with JavaScript (Apps Script).
-          </p>
-          <p class="about-blurb">
-            My time studying here reinvigorated my childhood passions by combining my love for art and games with code! Understanding what moves people and what makes them laugh, rage, and lock in through the iterative design process has been one of my most rewarding problems to solve — especially in game development. I'm currently on a journey to experience all sorts of things in hopes of getting closer to understanding what even is "fun" in terms of game dev.
-          </p>
-          <p class="about-blurb">
-            If you want to collaborate or chat about roles, please feel free to reach out!
-          </p>
-          <div class="cta-row">
-            <a class="btn-cta primary" href="mailto:ynikita@umich.edu">
-              <i class="bi bi-envelope"></i>
-              Email me
-            </a>
-            <a class="btn-cta" href="https://www.linkedin.com/in/nikita-yarapathineni/" target="_blank" rel="noopener">
-              <i class="bi bi-linkedin"></i>
-              LinkedIn
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="portfolio section">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h1>Projects</h1>
-        </div>
-
-        <div class="bam-detail">
-          <h2>BAM — Custom Game Engine</h2>
-          <div class="bam-meta">
-            <span>C++</span>
-            <span>Lua</span>
-            <span>Dear ImGui</span>
-            <span>SDL2</span>
-            <span>Box2D</span>
-            <span>LuaBridge</span>
-            <span>GLM</span>
-            <span>RapidJSON</span>
-          </div>
-
-          <p class="bam-desc">
-            BAM is a 2D game engine built in C++ with a Lua scripting runtime, featuring an integrated visual tile map editor powered by Dear ImGui.
-          </p>
-          <p class="bam-desc">
-            The editor launches directly from the engine binary — no separate tool, no separate build target. A single <code>--play</code> flag switches the same executable between editor and game mode. In the editor, level designers paint tile maps onto a grid and hit Save; the engine surgically rewrites the <code>stage1</code> table inside the game's Lua scripts and the changes are immediately playable.
-          </p>
-          <p class="bam-desc">
-            The tile palette is discovered automatically at runtime by parsing <code>GameManager.lua</code> — the editor scans for <code>tile_code</code> comparisons and nearby <code>Instantiate</code> calls to build the brush picker dynamically, requiring no separate tile configuration file.
-          </p>
-
-          <div style="margin-top: 2.5rem;">
-            <p class="watch-label">Watch it in action</p>
-            <div class="video-wrap">
-              <iframe
-                src="https://www.youtube.com/embed/ahQDxG0OLwQ"
-                title="BAM — Integrated Visual Map Editor demo"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
-              </iframe>
-            </div>
-            <a class="yt-direct-link" href="https://www.youtube.com/watch?v=ahQDxG0OLwQ" target="_blank" rel="noopener">
-              <i class="bi bi-youtube"></i>
-              Watch on YouTube
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <footer id="footer" class="footer dark-background">
-    <div class="container">
-      <div class="footer-inner"></div>
     </div>
+  </section>
+
+  <section id="about">
+    <div class="section-inner">
+      <p class="section-label">About</p>
+      <h2 class="section-heading">A bit about me</h2>
+      <p class="about-p">
+        I'm a senior studying CS at the University of Michigan. I currently work part-time as a Student Lead Computer Consultant for the university, where I spend my days managing fellow students, troubleshooting tech issues around campus, and utilizing JavaScript to automate repetitive processes to make my coworkers' lives easier. Technically, I'm most at home in Unity (C#) for gameplay systems, C++ for school projects, and I also build practical tooling with JavaScript (Apps Script).
+      </p>
+      <p class="about-p">
+        My time studying here reinvigorated my childhood passions by combining my love for art and games with code! Understanding what moves people and what makes them laugh, rage, and lock in through the iterative design process has been one of my most rewarding problems to solve — especially in game development. I'm currently on a journey to experience all sorts of things in hopes of getting closer to understanding what even is "fun" in terms of game dev.
+      </p>
+      <p class="about-p">
+        If you want to collaborate or chat about roles, please feel free to reach out!
+      </p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-inner">
+      <p class="section-label">Projects</p>
+      <h2 class="section-heading">Work</h2>
+
+      <h3 class="project-heading">BAM — Custom Game Engine</h3>
+
+      <div class="tech-row">
+        <span class="tag">C++</span>
+        <span class="tag">Lua</span>
+        <span class="tag">Dear ImGui</span>
+        <span class="tag">SDL2</span>
+        <span class="tag">Box2D</span>
+        <span class="tag">LuaBridge</span>
+        <span class="tag">GLM</span>
+        <span class="tag">RapidJSON</span>
+      </div>
+
+      <p class="project-p">
+        BAM is a 2D game engine built in C++ with a Lua scripting runtime, featuring an integrated visual tile map editor powered by Dear ImGui.
+      </p>
+      <p class="project-p">
+        The editor launches directly from the engine binary — no separate tool, no separate build target. A single <code>--play</code> flag switches the same executable between editor and game mode. In the editor, level designers paint tile maps onto a grid and hit Save; the engine surgically rewrites the <code>stage1</code> table inside the game's Lua scripts and the changes are immediately playable.
+      </p>
+      <p class="project-p">
+        The tile palette is discovered automatically at runtime by parsing <code>GameManager.lua</code> — the editor scans for <code>tile_code</code> comparisons and nearby <code>Instantiate</code> calls to build the brush picker dynamically, requiring no separate tile configuration file.
+      </p>
+
+      <div class="video-section">
+        <p class="video-label">Watch it in action</p>
+        <div class="video-wrap">
+          <iframe
+            src="https://www.youtube.com/embed/ahQDxG0OLwQ"
+            title="BAM — Integrated Visual Map Editor demo"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <a class="yt-btn" href="https://www.youtube.com/watch?v=ahQDxG0OLwQ" target="_blank" rel="noopener">
+          <svg class="yt-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8zM9.7 15.5V8.5l6.3 3.5-6.3 3.5z"/>
+          </svg>
+          Watch on YouTube
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    © Nikki Yarapathineni
   </footer>
-
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
-    <i class="bi bi-arrow-up-short"></i>
-  </a>
-
-  <div id="preloader"></div>
-
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/custom.js"></script>
 
 </body>
 </html>
